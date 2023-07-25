@@ -1,32 +1,19 @@
 <?php
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $message = $_POST["message"];
+    $to = "nabinkhair12@gmail.com";
+    $subject = "Message from Portfolio Contact Form";
+    $headers = "From: $email\r\n" .
+               "Reply-To: $email\r\n" .
+               "X-Mailer: PHP/" . phpversion();
 
+    // Send email
+    mail($to, $subject, $message, $headers);
 
-//varible setting
- $name= $_REQUEST['name'];
- $email = $_REQUEST['Email'];
- $message = $_REQUEST['Message'];
- $subject = "Message from Contact form !";
-
- $to ="nabinkhair12@gmail.com";  // change receiving email id 
- 
- $content = "Name : ". $name. "\r\nContact email : ". $email. "\r\n \r\nMessage : \r\n \r\n".$message ; // name [break] email [break] message
- 
-
-
-// check input fields
-if ( empty($name)|| empty($email)|| empty($message))
-{
-echo"<script type='text/javascript'>alert('Please fill all correct');
-    window.history.go(-1);
-    </script>";
+    // Redirect to a thank you page or any other page after successful submission
+    header("Location: https://example.com/thank-you.html");
+    exit;
 }
-else 
-{ mail($to,$subject,$content);
-
-    echo"<script type='text/javascript'>alert('Your message sent succesfully ');
-    window.history.go(-1);
-    </script>";
-}
-
-
 ?>
