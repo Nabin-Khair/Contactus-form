@@ -1,27 +1,25 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Contact form</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content=" width=device-width, initial-scale=1">
-    <link rel=" stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
 </head>
-
 <body>
-    <form class="Contactform" action="send.php">
+  <h1>Contact Us</h1>
+  <p>If you have any inquiries or would like to get in touch, please fill out the form below:</p>
 
-        <label>Name</label>
-        <input type="text" name="name" placeholder="Your name...">
+  <form action="https://example.com/contact.php" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
 
-        <label>E-Mail</label>
-        <input type="text" name="Email" placeholder="Your email...">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
 
-        <label>Message</label>
-        <textarea name="Message" placeholder="Write something..." style="height: 200px;"></textarea>
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
 
-        <center><button class="sendbutton">Send</button></center>
-
-    </form>
+    <button type="submit">Send Message</button>
+  </form>
 </body>
-
 </html>
